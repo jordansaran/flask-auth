@@ -20,7 +20,7 @@ services:
       retries: 3
 
   db:
-    image: postgres:13
+    image: postgres:latest
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
