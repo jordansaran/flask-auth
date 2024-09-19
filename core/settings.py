@@ -24,6 +24,7 @@ class Env:
         if exists(self._dotenv_path):
             self.ENVIRONMENT = getenv('ENVIRONMENT', "Development")
             self.SECRET_KEY = getenv('SECRET_KEY', "")
+            self.JWT_SECRET_KEY = getenv('JWT_SECRET_KEY', "")
             self.FLASK_DEBUG = getenv('FLASK_DEBUG', "1")
             self._debug = bool(self.FLASK_DEBUG)
             self.FLASK_APP = getenv('FLASK_APP', "")
