@@ -2,10 +2,42 @@ services:
   flask-auth:
     container_name: flask-auth-api
     build: .
-    command: flask run --host=0.0.0.0 --port=8000
+    command: gunicorn -b 0.0.0.0:8000 app:app
     volumes:
       - .:/usr/src/app/
     ports:
       - 8000:8000
     env_file:
       - ./.env
+    depends_on:
+      - db
+    networks:
+      - app_network
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -f http://localhost:8000/health || exit 1" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app_network
+    healthcheck:
+        test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+
+volumes:
+  postgres_data:
+
+networks:
+  app_network:
+    driver: bridge
