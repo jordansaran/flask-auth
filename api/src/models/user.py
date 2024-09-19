@@ -1,10 +1,11 @@
 from werkzeug.security import generate_password_hash
-
-from api.src.models.mixin import MixinNotAutoIncrement
+from api.src.models.mixin import MixinNotAutoIncrement, MixinBase
 from app import db
 
 
-class User(MixinNotAutoIncrement):
+class User(MixinBase):
+    __tablename__ = "user"
+
     username = db.Column(
         db.String(80),
         unique=True
@@ -16,7 +17,7 @@ class User(MixinNotAutoIncrement):
         db.String(256)
     )
 
-    def __init__(self, username, role, password_hash):
+    def __init__(self, username: str, password: str, role: str = 'user'):
         self.username = username
         self.role = role
-        self.password = generate_password_hash(password_hash)
+        self.password = generate_password_hash(password)
