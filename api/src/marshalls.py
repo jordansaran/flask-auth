@@ -9,6 +9,8 @@ marshall_body_user = Model("User", {
 marshall_user = Model("User", {
     'id': fields.Integer(description="ID "),
     'username': fields.String(description="Nome do usuário"),
+    'created_at': fields.DateTime(description="Data de Criação"),
+    'updated_at': fields.DateTime(description="Data de Criação"),
 })
 
 marshall_api_response = Model("ApiResponse", {
