@@ -124,3 +124,10 @@ caso não esteja, a rota não se encontrada.
 - **Término do Projeto:** 18 de Setembro de 2024
 - **Tempo Total Estimado:** 4 horas
 - **Horas desenvolvidas:** 4 horas
+
+# Usuários fake para teste
+
+| Papel  | Username | Password     | Descrição                       |
+|--------|----------|--------------|---------------------------------|
+| `user` | user     | L0XuwPOdS5U  | Usuário comum do sistema        |
+| `admin`| admin    | JKSipm0YH    | Administrador do sistema        |
