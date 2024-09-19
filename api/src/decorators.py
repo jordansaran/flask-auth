@@ -30,7 +30,6 @@ def exceptions(namespace: Namespace):
         @functools.wraps(function)
         def type_exceptions(*args, **kwargs):
             try:
-
                 return function(*args, **kwargs)
             except (OperationalError, IntegrityError, ProgrammingError, NoInspectionAvailable,
                     AttributeError, KeyError, ValueError) as _error:

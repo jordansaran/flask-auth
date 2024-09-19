@@ -14,7 +14,7 @@ ns_token = Namespace(
     path=f'/token'
 )
 
-@ns_token.route("/token")
+@ns_token.route("")
 class Auth(Resource):
 
     @ns_token.expect(marshall_body_user, validate=True)

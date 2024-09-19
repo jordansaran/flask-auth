@@ -15,7 +15,7 @@ ns_admin = Namespace(
     name=model,
     description=f"Informações sobre {model}.",
     validate=True,
-    path=f'/{model}'
+    path=f'/{model.lower()}'
 )
 ns_admin.models.update({marshall_body_user.name: marshall_body_user})
 ns_admin.models.update({marshall_api_response.name: marshall_api_response})
@@ -84,7 +84,7 @@ class AdminNamespace(Resource):
     f"Lista de {model} encontrado com sucesso.",
     marshall_user
 )
-class UserByBody(Resource):
+class AdminByBody(Resource):
     f"""Handles HTTP requests to url: /{model} by Body"""
 
     @jwt_required()
@@ -92,7 +92,7 @@ class UserByBody(Resource):
     @ns_admin.marshal_list_with(marshall_user)
     def get(self):
         f"""Retornar lista de {model}"""
-        return User.query.all()
+        return User.query.filter_by(role='admin').all()
 
 
     @jwt_required()
