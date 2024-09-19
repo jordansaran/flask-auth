@@ -22,6 +22,4 @@ COPY . /usr/src/app/
 
 RUN chmod -R 777 /usr/src/app/
 
-ENTRYPOINT [ "/usr/local/bin/docker-entrypoint.sh" ]
-
 EXPOSE 8000
