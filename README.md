@@ -117,3 +117,10 @@ Abra http://localhost:8000/ em seu navegador para acessar a documentação da AP
 Caso deseje visualizar outra forma de documentação. Esse endpoint só visível caso a variável ambiente **FLASK_DEBUG** esteja com o valor igual a 1, 
 caso não esteja, a rota não se encontrada.
 1. http://localhost:8000/api/v1/ui
+
+# Tempo de Desenvolvimento
+
+- **Início do Projeto:** 18 de Setembro de 2024
+- **Término do Projeto:** 18 de Setembro de 2024
+- **Tempo Total Estimado:** 4 horas
+- **Horas desenvolvidas:** 4 horas
