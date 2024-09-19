@@ -1,6 +1,10 @@
 """"Blueprints to API"""
 from flask import Blueprint
 from flask_restx import Api
+
+from api.src.namespaces.admin import ns_admin
+from api.src.namespaces.auth import ns_token
+from api.src.namespaces.user import ns_user
 from core.settings import Settings
 
 
@@ -14,6 +18,11 @@ api_pipeline = Api(
     doc='/ui' if Settings().debug_is_enabled() else False,
     validate=True
 )
+
+api_pipeline.add_namespace(ns_user)
+api_pipeline.add_namespace(ns_token)
+api_pipeline.add_namespace(ns_admin)
+
 
 if not settings.debug_is_enabled():
     api_pipeline.init_app(api_bp_pipeline, add_specs=False)
