@@ -20,10 +20,13 @@ services:
       retries: 3
 
   db:
-    image: postgres:latest
+    image: postgres:16.4
+    container_name: flask-db
+    ports:
+      - 5432:5432
     environment:
-      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
       - POSTGRES_DB=postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -40,4 +43,3 @@ volumes:
 
 networks:
   app_network:
-    driver: bridge
