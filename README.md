@@ -81,6 +81,36 @@ Apenas execute o seguinte comando para inicializar o container da aplicação vi
 docker-compose start flask-auth
 ````
 
+# 3 Rotas da API
+
+A seguir está uma lista das principais rotas da API, com suas respectivas descrições e requisitos de autenticação:
+
+## 3.1. Autenticação
+<span style="background-color: #333; color: #fff; padding: 5px 10px; border-radius: 5px; font-family: monospace;">POST /api/token</span>
+- Descrição: Gera um token JWT para autenticação.
+- Requisição:
+```json
+{
+  "username": "user",
+  "password": "password"
+}
+```
+- Resposta:
+````json
+{
+  "access_token": "eyJ0eXAiOiJKV1QiLCJh...dXNlcl9uYW1lIn0"
+}
+````
+
+## 3.2. Usuário
+<span style="background-color: #333; color: #fff; padding: 5px 10px; border-radius: 5px; font-family: monospace;">GET /api/user</span>
+- Descrição: Endpoint acessível apenas por usuários com papel de user.
+- Autenticação: <span style="background-color: #333; color: #fff; padding: 5px 10px; border-radius: 5px; font-family: monospace;">Bearer Token</span> 
+
+<span style="background-color: #333; color: #fff; padding: 5px 10px; border-radius: 5px; font-family: monospace;">GET /api/admin</span>
+- Descrição: Endpoint acessível apenas por usuários com papel de admin.
+- Autenticação: <span style="background-color: #333; color: #fff; padding: 5px 10px; border-radius: 5px; font-family: monospace;">Bearer Token</span> 
+
 # Documentação
 
 Abra http://localhost:8000/ em seu navegador para acessar a documentação da API.
