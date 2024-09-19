@@ -15,6 +15,9 @@ RUN apt update -y  &&  \
 COPY ./requirements.txt /usr/src/app/requirements.txt
 COPY ./.env.example /usr/src/app/.env
 COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
 
 RUN pip install -r requirements.txt
 
