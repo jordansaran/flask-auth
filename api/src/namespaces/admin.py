@@ -1,12 +1,11 @@
 from http import HTTPStatus
-from logging import error, debug
+from logging import error
 from flask_jwt_extended import jwt_required
 from flask_restx import Namespace, Resource, marshal
 from api.src.constants import StatusAPI
 from api.src.decorators import exceptions, role_required
 from api.src.marshalls import marshall_body_user, marshall_api_response, marshall_user
 from api.src.models.user import User
-from api.src.utils import httpstatus_to_api_response
 from app import db
 
 model = "Admin"
