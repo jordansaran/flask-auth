@@ -110,9 +110,7 @@ class UserByBody(Resource):
                 )
             except Exception as _error:
                 error(_error)
-        return marshal(httpstatus_to_api_response((
-            400,
-            'Bad Request',
-            ''
-        )), marshall_api_response), \
-            int(HTTPStatus.BAD_REQUEST)
+        return marshal(
+                    StatusAPI.BAD_REQUEST_API,
+                    marshall_api_response
+                ), int(HTTPStatus.BAD_REQUEST)

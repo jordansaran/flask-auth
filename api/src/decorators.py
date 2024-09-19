@@ -18,7 +18,10 @@ def role_required(role):
         def wrapper(*args, **kwargs):
             current_user = get_jwt_identity()
             if current_user['role'] != role:
-                return jsonify({'message': 'Access forbidden: You do not have the required role.'}), 403
+                return  marshal(
+                    StatusAPI.FORBIDEN,
+                    marshall_api_response
+                ), int(HTTPStatus.FORBIDDEN)
             return fn(*args, **kwargs)
         return wrapper
     return decorator

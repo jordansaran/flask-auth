@@ -27,6 +27,11 @@ class StatusAPI:
         'Unauthorized',
         'No permission -- see authorization schemes'
     ))
+    FORBIDEN = httpstatus_to_api_response((
+        403,
+        'Forbiden',
+        'No permission -- see authorization schemes'
+    ))
     UNENVIRONMENT = httpstatus_to_api_response((
         401,
         'UNENVIRONMENT',
