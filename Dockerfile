@@ -13,8 +13,8 @@ RUN apt update -y  &&  \
     pip install --upgrade pip setuptools wheel
 
 COPY ./requirements.txt /usr/src/app/requirements.txt
-
 COPY ./.env.example /usr/src/app/.env
+COPY entrypoint.sh /entrypoint.sh
 
 RUN pip install -r requirements.txt
 

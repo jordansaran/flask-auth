@@ -12,7 +12,7 @@ authorizations = {
         'type': 'apiKey',
         'in': 'header',
         'name': 'Authorization',
-    'description': 'Coloque o token JWT aqui: Bearer {token}'
+        'description': 'Coloque o token JWT aqui: Bearer {token}'
     }
 }
 
